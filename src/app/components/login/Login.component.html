@@ -1,27 +1,39 @@
-<div class="login-container">
+
+<div class="container">
+  <img src="assets/images/login.png" alt="Illustration enfants" class="header-image">
+  <div class="login-box">
     <h2>Connexion</h2>
-  
-    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-      
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Champ Email -->
       <div>
-        <label>Email</label>
-        <input type="email" [(ngModel)]="user.email" name="email" required placeholder="Votre email">
-        <div *ngIf="!user.email && user.email !== ''">
-          Email requis !
+        <input type="email" formControlName="email" placeholder="Email"
+               [ngClass]="{'error-border': loginForm.get('email')?.invalid && loginForm.get('email')?.touched}">
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+          <small *ngIf="loginForm.get('email')?.errors?.['required']">L'email est requis.</small>
+          <small *ngIf="loginForm.get('email')?.errors?.['email']">Email invalide.</small>
         </div>
       </div>
-  
+
+      <!-- Champ Mot de passe -->
       <div>
-        <label>Mot de passe</label>
-        <input type="password" [(ngModel)]="user.password" name="password" required placeholder="Votre mot de passe">
-        <div *ngIf="!user.password && user.password !== ''">
-          Mot de passe requis !
+        <input type="password" formControlName="password" placeholder="Mot de passe"
+               [ngClass]="{'error-border': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}">
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+          <small *ngIf="loginForm.get('password')?.errors?.['required']">Le mot de passe est requis.</small>
+          <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            Minimum {{ loginForm.get('password')?.errors?.['minlength'].requiredLength }} caractères.
+          </small>
         </div>
       </div>
-  
-      <button type="submit" [disabled]="!user.email || !user.password">Se connecter</button>
+
+      <!-- Bouton de soumission -->
+      <button type="submit" [disabled]="loginForm.invalid">Connexion</button>
     </form>
-  
-    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
   </div>
-  
+</div>
+
+
+
+

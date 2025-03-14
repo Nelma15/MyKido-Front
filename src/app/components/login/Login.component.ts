@@ -1,19 +1,20 @@
 
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {CommonModule, NgClass, NgIf} from '@angular/common';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { LoginService } from '../../services/LoginService';
 
 
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule,NgIf, ReactiveFormsModule, NgClass],
   templateUrl: './Login.component.html',
-  
+
   styleUrl: './Login.component.css'
 })
 export class LoginComponent {
+  loginForm: FormGroup;
   user = {
     email: '',
     password: ''
@@ -22,21 +23,30 @@ export class LoginComponent {
 
   errorMessage: string = '';
 
-  constructor(private loginService: LoginService) {}
-
-  onSubmit(e:any)  {
-
-    this.loginService.login(this.user.email, this.user.password).subscribe({
-      next: (response) => {
-        console.log('Connexion réussie :', response);
-        localStorage.setItem('token', 'Bearer '+response.accessToken); // Stockage du token
-      },
-      error: (err) => {
-        this.errorMessage = "Email ou mot de passe incorrect";
-      }
+  constructor(private fb: FormBuilder, private loginService: LoginService) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
+  }
 
-  
+  onSubmit()  {
+    if (this.loginForm.valid) {
+      this.loginService.login(this.user.email, this.user.password).subscribe({
+        next: (response) => {
+          console.log('Connexion réussie :', response);
+          localStorage.setItem('token', 'Bearer ' + response.accessToken); // Stockage du token
+        },
+        error: (err) => {
+          this.errorMessage = "Email ou mot de passe incorrect";
+        }
+      });
+    }
+    else {
+      console.log('Formulaire invalide');
+    }
+
+
   }
 
 }

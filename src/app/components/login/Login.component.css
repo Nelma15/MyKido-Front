@@ -1,36 +1,78 @@
-.login-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background: #f9f9f9;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  height: 100vh;
+  margin: auto;
+}
+
+.header-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.login-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h2 {
+  color: #234648;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 3px solid #9BCBCD;
+  border-radius: 15px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background-color: #f4b183;
+  color: #234648;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e39660;
+}
+
+.forgot-password {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #234648;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .login-box {
+    width: 400px;
   }
-  
-  input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:disabled {
-    background: #ccc;
-  }
-  
-  .error {
-    color: red;
-    margin-top: 10px;
-  }
+}
+
+
+

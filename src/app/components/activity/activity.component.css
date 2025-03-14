@@ -1,0 +1,185 @@
+/* Import ou déclaration de la police Aptos (exemple fictif)
+@font-face {
+  font-family: 'Aptos';
+  src: url('assets/fonts/Aptos.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+
+/* Palette de couleurs MyKido pour rappel :
+   #C3DBCD (Ash gray)
+   #C4B04A (Old gold)
+   #9BCBCD (Light blue)
+   #FEC0B3 (Fawn)
+   #FBC1BC (Melon)
+   #ECA462 (Ecru)
+   #234648 (Dark slate gray)
+   #FFF2E1 (Antique White)
+   #B5CDCC (Non photo blue)
+*/
+
+:host {
+    display: block;
+    font-family: 'Aptos', sans-serif;
+    background-color: #FFF2E1; /* Antique White */
+    color: #234648;            /* Dark slate gray */
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Réinitialisation basique */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Header */
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #C3DBCD; /* Ash gray */
+    padding: 1rem 2rem;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #234648;
+  }
+  
+  .top-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+  }
+  
+  .top-nav a {
+    text-decoration: none;
+    color: #234648;
+    font-weight: 500;
+  }
+  
+  .top-nav a:hover {
+    color: #C4B04A; /* Old gold */
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background-color: #9BCBCD; /* Light blue */
+    width: 220px;
+    padding-top: 2rem;
+    position: fixed;
+    top: 72px; /* hauteur approximative du header */
+    bottom: 0;
+    left: 0;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .sidebar li {
+    margin: 1rem 0;
+  }
+  
+  .sidebar a {
+    color: #234648;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+  
+  .sidebar .active a {
+    background-color: #C4B04A; /* Old gold */
+    color: #FFF2E1;
+    border-radius: 4px;
+  }
+  
+  .sidebar a:hover {
+    background-color: #FEC0B3; /* Fawn */
+    color: #234648;
+    border-radius: 4px;
+  }
+  
+  /* Main content */
+  .content {
+    margin-left: 220px; /* largeur de la sidebar */
+    padding: 2rem;
+    background-color: #FFF2E1; /* Antique White */
+  }
+  
+  .content h1, .content h2 {
+    margin-bottom: 1rem;
+  }
+  
+  /* Formulaire */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #B5CDCC; /* Non photo blue */
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-family: inherit;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .btn-primary {
+    background-color: #C4B04A; /* Old gold */
+    color: #FFF2E1;           /* Antique White */
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ECA462; /* Ecru */
+  }
+  
+  /* Tableau des activités */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #B5CDCC; /* Non photo blue */
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  thead {
+    background-color: #FBC1BC; /* Melon */
+  }
+  
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #B5CDCC;
+  }
+  
+  tbody tr:hover {
+    background-color: #FEC0B3; /* Fawn */
+  }
+  

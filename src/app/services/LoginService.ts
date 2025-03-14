@@ -20,11 +20,11 @@ export class LoginService {
       .map((role) => role as unknown as Role)
       .filter((role) => Object.values(Role).includes(role));
   }
-  // 🔹 Vérifier si l'utilisateur est un Dentiste
+  // Vérifier si l'utilisateur est un Dentiste
   isParent(): boolean {
     return this.roles.includes(Role.ROLE_PARENT);
   }
-  // 🔹 Vérifier si l'utilisateur est un Patient
+  //  Vérifier si l'utilisateur est un Patient
   isChildEducator(): boolean {
     return this.roles.includes(Role.ROLE_CHILDEDUCATOR);
   }

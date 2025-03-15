@@ -1,39 +1,35 @@
-
-<div class="container">
-  <img src="assets/images/login.png" alt="Illustration enfants" class="header-image">
-  <div class="login-box">
-    <h2>Connexion</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <!-- Champ Email -->
-      <div>
-        <input type="email" formControlName="email" placeholder="Email"
-               [ngClass]="{'error-border': loginForm.get('email')?.invalid && loginForm.get('email')?.touched}">
-        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
-          <small *ngIf="loginForm.get('email')?.errors?.['required']">L'email est requis.</small>
-          <small *ngIf="loginForm.get('email')?.errors?.['email']">Email invalide.</small>
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+  <div class="card" style="width: 100%; max-width: 400px;">
+    <img src="assets/images/login.png" class="card-img-top" alt="Illustration enfants">
+    <div class="card-body">
+      <h5 class="card-title text-center">Connexion</h5>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- Champ Email -->
+        <div class="form-group">
+          <input type="email" formControlName="email" class="form-control" placeholder="Email"
+                 [ngClass]="{'is-invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched}">
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="invalid-feedback">
+            <small *ngIf="loginForm.get('email')?.errors?.['required']">L'email est requis.</small>
+            <small *ngIf="loginForm.get('email')?.errors?.['email']">Email invalide.</small>
+          </div>
         </div>
-      </div>
 
-      <!-- Champ Mot de passe -->
-      <div>
-        <input type="password" formControlName="password" placeholder="Mot de passe"
-               [ngClass]="{'error-border': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}">
-        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
-          <small *ngIf="loginForm.get('password')?.errors?.['required']">Le mot de passe est requis.</small>
-          <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
-            Minimum {{ loginForm.get('password')?.errors?.['minlength'].requiredLength }} caractères.
-          </small>
+        <!-- Champ Mot de passe -->
+        <div class="form-group">
+          <input type="password" formControlName="password" class="form-control" placeholder="Mot de passe"
+                 [ngClass]="{'is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}">
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="invalid-feedback">
+            <small *ngIf="loginForm.get('password')?.errors?.['required']">Le mot de passe est requis.</small>
+            <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+              Minimum {{ loginForm.get('password')?.errors?.['minlength'].requiredLength }} caractères.
+            </small>
+          </div>
         </div>
-      </div>
 
-      <!-- Bouton de soumission -->
-      <button type="submit" [disabled]="loginForm.invalid">Connexion</button>
-    </form>
-
-    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+        <!-- Bouton de soumission -->
+        <button type="submit" class="btn btn-primary btn-block custom-btn" [disabled]="loginForm.invalid">Connexion</button>
+      </form>
+      <a href="#" class="d-block text-center mt-3">Mot de passe oublié ?</a>
+    </div>
   </div>
 </div>
-
-
-
-

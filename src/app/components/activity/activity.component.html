@@ -1,113 +1,146 @@
-<!-- src/app/app.component.html -->
 <header class="main-header">
-    <div class="logo">MyKido</div>
-    <nav class="top-nav">
-      <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Activités</a></li>
-        <li><a href="#">Enfants</a></li>
-        <li><a href="#">Paramètres</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <aside class="sidebar">
+  <div class="logo">MyKido</div>
+  <nav class="top-nav">
     <ul>
-      <li class="active"><a href="#">Tableau de bord</a></li>
-      <li><a href="#">Planning</a></li>
-      <li><a href="#">Rapports</a></li>
-      <li><a href="#">Messages</a></li>
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">Activités</a></li>
+      <li><a href="#">Enfants</a></li>
+      <li><a href="#">Paramètres</a></li>
     </ul>
-  </aside>
-  
-  <main class="content">
-    <h1>Enregistrer une nouvelle activité</h1>
-  
-    <!-- Formulaire template-driven -->
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="childName">Nom de l’enfant</label>
-        <select required>
-          <option *ngFor="let child of children" [value]="child.id">{{child.lastName}}</option>
-        </select>
-      </div>
-  
-      <div class="form-group">
-        <label for="activityType">Type d’activité</label>
-        <select 
-          id="activityType" 
-          [(ngModel)]="newActivity.activityType" 
-          name="activityType"
-          required
-        >
-          <option value="">Sélectionner...</option>
-          <option value="dessin">Dessin</option>
-          <option value="lecture">Lecture</option>
-          <option value="jeu extérieur">Jeu extérieur</option>
-          <option value="sieste">Peinture</option>
-          <option value="musique">Musique</option>
-          <option value="musique">Sieste</option>
-          <option value="musique">Repas/Gouter</option>
-        </select>
-      </div>
-  
-      <div class="form-group">
-        <label for="date">Date</label>
-        <input 
-          type="date" 
-          id="date" 
-          [(ngModel)]="newActivity.date" 
-          name="date" 
-          required
-        />
-      </div>
-  
-      <div class="form-group">
-        <label for="time">Heure</label>
-        <input 
-          type="time" 
-          id="time" 
-          [(ngModel)]="newActivity.time" 
-          name="time" 
-          required
-        />
-      </div>
-  
-      <div class="form-group">
-        <label for="notes">Notes</label>
-        <textarea 
-          id="notes" 
-          [(ngModel)]="newActivity.notes" 
-          name="notes" 
-          rows="3"
-        ></textarea>
-      </div>
-  
-      <button type="submit" class="btn-primary">Ajouter l’activité</button>
-    </form>
-  
-    <hr />
-  
-    <h2>Activités enregistrées</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Enfant</th>
-          <th>Activité</th>
-          <th>Date</th>
-          <th>Heure</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let act of activities">
-          <td>{{ act.childName }}</td>
-          <td>{{ act.activityType }}</td>
-          <td>{{ act.date }}</td>
-          <td>{{ act.time }}</td>
-          <td>{{ act.notes }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </main>
-  
+  </nav>
+</header>
+
+<aside class="sidebar">
+  <ul>
+    <li class="active"><a href="#">Tableau de bord</a></li>
+    <li><a href="#">Planning</a></li>
+    <li><a href="#">Rapports</a></li>
+    <li><a href="#">Messages</a></li>
+  </ul>
+</aside>
+
+<main class="content">
+  <h1>Enregistrer une nouvelle activité</h1>
+
+  <!-- Formulaire template-driven -->
+  <form (ngSubmit)="onSubmit()">
+    <!-- Sélection de l'enfant (childId) -->
+    <div class="form-group">
+      <label for="childId">Nom de l’enfant</label>
+      <select 
+        id="childId" 
+        [(ngModel)]="newActivity.childId" 
+        name="childId"
+        required
+      >
+        <option *ngFor="let child of children" [value]="child.id">
+          {{ child.lastName }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Type d'activité -->
+    <div class="form-group">
+      <label for="activityType">Type d’activité</label>
+      <select 
+        id="activityType" 
+        [(ngModel)]="newActivity.activityType" 
+        name="activityType"
+        required
+      >
+        <option value="">Sélectionner...</option>
+        <option value="dessin">Dessin</option>
+        <option value="lecture">Lecture</option>
+        <option value="jeu extérieur">Jeu extérieur</option>
+        <option value="peinture">Peinture</option>
+        <option value="musique">Musique</option>
+        <option value="sieste">Sieste</option>
+        <option value="repas">Repas/Gouter</option>
+      </select>
+    </div>
+
+    <!-- Nom de l'activité -->
+    <div class="form-group">
+      <label for="activityName">Nom de l’activité</label>
+      <input 
+        type="text" 
+        id="activityName" 
+        [(ngModel)]="newActivity.activityName" 
+        name="activityName"
+        required
+      />
+    </div>
+
+    <!-- Date et heure de début de l'activité -->
+    <div class="form-group">
+      <label for="activityTimeStart">Date et heure de début</label>
+      <input 
+        type="datetime-local" 
+        id="activityTimeStart" 
+        [(ngModel)]="newActivity.activityTimeStart" 
+        name="activityTimeStart"
+        required
+      />
+    </div>
+
+    <!-- Date et heure de fin de l'activité (optionnel) -->
+    <div class="form-group">
+      <label for="activityTimeEnd">Date et heure de fin</label>
+      <input 
+        type="datetime-local" 
+        id="activityTimeEnd" 
+        [(ngModel)]="newActivity.activityTimeEnd" 
+        name="activityTimeEnd"
+      />
+    </div>
+
+    <!-- Description / Notes (correspond à activityDescription) -->
+    <div class="form-group">
+      <label for="activityDescription">Description / Notes</label>
+      <textarea 
+        id="activityDescription" 
+        [(ngModel)]="newActivity.activityDescription" 
+        name="activityDescription" 
+        rows="3"
+      ></textarea>
+    </div>
+
+    <!-- Optionnel : Input pour la photo
+    <div class="form-group">
+      <label for="photo">Photo</label>
+      <input 
+        type="file" 
+        id="photo" 
+        (change)="onFileChange($event)" 
+        accept="image/*"
+      />
+    </div> -->
+
+    <button type="submit" class="btn-primary">Ajouter l’activité</button>
+  </form>
+
+  <hr />
+
+  <h2>Activités enregistrées</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Enfant</th>
+        <th>Type</th>
+        <th>Début</th>
+        <th>Fin</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let act of activities">
+        <!-- Ici, vous pourrez afficher par exemple le nom de l’enfant grâce à une jointure ou une méthode de transformation -->
+        <td>{{ act.childId }}</td>
+        <td>{{ act.activityType }}</td>
+        <td>{{ act.activityTimeStart | date:'short' }}</td>
+        <td>{{ act.activityTimeEnd | date:'short' }}</td>
+        <td>{{ act.activityDescription }}</td>
+      </tr>
+    </tbody>
+  </table>
+</main>

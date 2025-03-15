@@ -41,7 +41,7 @@ input {
   box-sizing: border-box;
 }
 
-button {
+.custom-btn {
   width: 100%;
   background-color: #f4b183;
   color: #234648;
@@ -52,7 +52,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.custom-btn:hover {
   background-color: #e39660;
 }
 

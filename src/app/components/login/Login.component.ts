@@ -32,7 +32,7 @@ export class LoginComponent {
 
   onSubmit()  {
     if (this.loginForm.valid) {
-      this.loginService.login(this.user.email, this.user.password).subscribe({
+      this.loginService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe({
         next: (response) => {
           console.log('Connexion réussie :', response);
           localStorage.setItem('token', 'Bearer ' + response.accessToken); // Stockage du token

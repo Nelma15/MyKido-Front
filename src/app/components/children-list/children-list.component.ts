@@ -22,7 +22,7 @@ export class ChildrenListComponent implements OnInit{
       this.children = data;
     });
   }
-  
+
 
 
 }

@@ -3,11 +3,11 @@
     <div class="header-left">
       <img src="assets/images/logo.png" alt="Logo" class="logo">
     </div>
-    
+
     <div class="header-center">
       <h1>Accueil</h1>
     </div>
-  
+
     <div class="header-right"></div>
 </header>
 
@@ -28,7 +28,7 @@
             </div>
             <div class="date-right"></div>
         </div>
-     
+
 
         <div *ngFor="let activity of activities[child.id]" class="activity-card">
             <div class="activity-icon">
@@ -44,23 +44,3 @@
         <p *ngIf="!activities[child.id] || activities[child.id].length === 0" class="no-activity">Aucune activité trouvée.</p>
     </div>
 </div>
-
-<!-- FOOTER -->
-<footer class="footer">
-    <a routerLink="/home" class="footer-item">
-        <img src="assets/images/footer/home.png" alt="Accueil">
-        <span>Accueil</span>
-    </a>
-    <a routerLink="/news" class="footer-item">
-        <img src="assets/images/footer/news.png" alt="Actualités">
-        <span>Actualités</span>
-    </a>
-    <a routerLink="/messages" class="footer-item">
-        <img src="/assets/images/footer/message.png" alt="Message">
-        <span>Message</span>
-    </a>
-    <a routerLink="/tools" class="footer-item">
-        <img src="/assets/images/footer/tools.png" alt="Mes outils">
-        <span>Mes outils</span>
-    </a>
-</footer>

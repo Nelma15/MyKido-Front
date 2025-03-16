@@ -1,0 +1,107 @@
+header {
+  background-color: #9FC7C2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 70px;
+  height: 70px;
+}
+
+.logo span {
+  font-weight: bold;
+  font-size: 24px;
+  color: #000;
+}
+
+/* ===== BARRE DE DATE ===== */
+.title-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f8caca;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  width: 100%;
+}
+
+.title-left {
+  flex: 1;  /* Prend l'espace à gauche */
+  text-align: left;
+}
+
+.child-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+}
+.title-center {
+  flex: 2;  /* Prend plus d'espace pour forcer la date au centre */
+  text-align: center;
+}
+.title-right {
+  flex: 1;  /* Équilibre avec le côté gauche */
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ===== CONTENU DES ENFANTS ===== */
+.child-container {
+  margin: auto;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Titre de la section */
+.title {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  padding: 10px;
+  background-color: #f8caca;
+  border-radius: 6px;
+}
+
+/* Nom de l'enfant */
+.child-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+  flex: 1; /* Prend l'espace à gauche */
+  text-align: left;
+
+}
+
+/* Carte d'enfant */
+.child-card {
+  display: flex;
+  align-items: center;
+  background-color: #fff8e1;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* image de l'enfant */
+img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+/* Détails de l'activité */
+.child-details {
+  flex-grow: 1;
+}

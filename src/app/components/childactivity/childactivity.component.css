@@ -28,19 +28,37 @@
 /* ===== BARRE DE DATE ===== */
 .date-bar {
     display: flex;
-    justify-content: center;
     align-items: center;
     background-color: #f8caca;
-    padding: 8px;
+    padding: 10px 15px;
     font-size: 16px;
     font-weight: bold;
     color: #333;
     border-bottom: 2px solid #ddd;
+    width: 100%;
 }
 
-/* Flèches de navigation */
+.date-left {
+    flex: 1;  /* Prend l'espace à gauche */
+    text-align: left;
+}
+
+.child-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+}
+.date-center {
+    flex: 2;  /* Prend plus d'espace pour forcer la date au centre */
+    text-align: center;
+}
+.date-right {
+    flex: 1;  /* Équilibre avec le côté gauche */
+    display: flex;
+    justify-content: flex-end;
+}
 .date-arrow {
-    padding: 0 15px;
+    padding: 0 10px;
     cursor: pointer;
     font-size: 18px;
     color: #c07b7b;
@@ -72,9 +90,11 @@
 
 /* Nom de l'enfant */
 .child-name {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: bold;
     color: #444;
-    margin-bottom: 10px;
+    flex: 1; /* Prend l'espace à gauche */
+    text-align: left;
    
 }
 
@@ -138,9 +158,9 @@
 /* Chaque élément du footer */
 .footer-item {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 12px;
+    align-items: center;  /* Aligner image et texte horizontalement */
+    gap: 8px;  /* Espacement entre l'icône et le texte */
+    font-size: 14px;
     color: #333;
     text-decoration: none;
 }
@@ -149,7 +169,6 @@
 .footer-item img {
     width: 24px;
     height: 24px;
-    margin-bottom: 5px;
 }
 
 /* Style au clic */

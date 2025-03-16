@@ -18,10 +18,15 @@
     <div *ngFor="let child of children" class="child-section">
         <!-- Barre de navigation des dates -->
         <div class="date-bar">
-            <h3 class="child-name">{{ child.firstName }} {{ child.lastName }}</h3>
-            <span class="date-arrow" (click)="previousDay()">&lt;</span>
-            <span class="date-text"> {{ currentDate | date:'EEEE d MMMM y' }}</span>
-            <span class="date-arrow" (click)="nextDay()">&gt;</span>
+            <div class="date-left">
+                <span class="child-name">{{ child.firstName }} {{ child.lastName }}</span>
+            </div>
+            <div class="date-center">
+                <span class="date-arrow" (click)="previousDay()">&lt;</span>
+                <span class="date-text">{{ currentDate | date:'EEEE d MMMM y' }}</span>
+                <span class="date-arrow" (click)="nextDay()">&gt;</span>
+            </div>
+            <div class="date-right"></div>
         </div>
      
 

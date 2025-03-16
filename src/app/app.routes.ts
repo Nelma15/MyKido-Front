@@ -8,8 +8,10 @@ import { ChildactivityComponent } from './components/childactivity/childactivity
 export const routes: Routes = [
     { path: '', component: LoginComponent }, 
     { path: 'register',component: RegisterComponent},
-    { path: 'activity',component: ActivityComponent},
+    { path: 'activity',component: ActivityComponent, data: { title: 'Saisi Activité Enfant' }},
     { path: 'activityList',component: ChildactivityComponent},
-    {path:'child',component:ChildrenListComponent}
+    {path:'child',component:ChildrenListComponent, data: { title: 'Mes Outils' }}
+    
+
     
 ];

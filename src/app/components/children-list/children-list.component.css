@@ -1,127 +1,24 @@
-/* ============================= */
-/*           HEADER              */
-/* ============================= */
-header {
-  background-color: #9FC7C2; /* Conserve la couleur d'origine */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Couleurs personnalisées */
+.bg-success {
+  background-color: #9FC7C2 !important;
 }
 
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
+.bg-danger {
+  background-color: #f8caca !important;
 }
 
-.logo img {
-  width: 70px;
-  height: 70px;
+.bg-warning {
+  background-color: #fff8e1 !important;
 }
 
-.logo span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #000;
+/* Personnalisation des images */
+.child-card img {
+  border: 2px solid #9FC7C2;
+  padding: 2px;
 }
 
-/* Centrage du titre dans le header */
-.header-center h3 {
+/* Titre central */
+h3 {
   font-size: 20px;
   color: #333;
-  text-align: center;
-}
-
-/* ============================= */
-/*      BARRE DE NAVIGATION      */
-/* ============================= */
-.title-bar {
-  display: flex;
-  align-items: center;
-  background-color: #f8caca; /* Conserve la couleur rose */
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-  border-bottom: 2px solid #ddd;
-  width: 100%;
-}
-
-.title-center {
-  flex: 2; /* Permet de centrer le titre */
-  text-align: center;
-}
-
-/* ============================= */
-/*      CONTENU DES ENFANTS      */
-/* ============================= */
-.child-container {
-  max-width: 800px;
-  margin: auto;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-/* Carte enfant */
-.child-card {
-  display: flex;
-  align-items: center;
-  background-color: #fff8e1; /* Conserve la couleur jaune pâle */
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-}
-
-.child-card:hover {
-  transform: scale(1.02);
-}
-
-/* Image enfant */
-.child-card img {
-  width: 60px;
-  height: 60px;
-  margin-right: 15px;
-  border-radius: 50%;
-  border: 2px solid #9FC7C2; /* Bordure de la couleur principale */
-}
-
-/* Informations enfant */
-.child-details {
-  flex-grow: 1;
-  font-size: 16px;
-  color: #444;
-}
-
-/* ============================= */
-/*        RESPONSIVITÉ           */
-/* ============================= */
-@media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .logo {
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  .child-container {
-    padding: 15px;
-  }
-
-  .child-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
-  }
-
-  .child-card img {
-    margin-bottom: 10px;
-  }
 }

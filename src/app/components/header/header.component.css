@@ -1,0 +1,35 @@
+/* ===== HEADER PRINCIPAL ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b0d6d1;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #000000;
+    padding: 10px;
+}
+
+/* Logo à gauche */
+.header-left .logo {
+    height: 50px; /* Ajuste la taille du logo */
+    width: auto;
+    border-radius: 5px;
+}
+
+/* Titre centré */
+.header-center h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+.header-right .logout {
+    height: 35px; /* Ajuste la taille du logo */
+    width: auto;
+    border-radius: 5px;
+}
+
+
+
+

@@ -1,2 +1,4 @@
-<router-outlet />
-<app-footer></app-footer>
+
+<app-header *ngIf="showHeader"></app-header>
+<router-outlet/>
+<app-footer *ngIf="showFooter"></app-footer>

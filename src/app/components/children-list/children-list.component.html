@@ -1,31 +1,19 @@
-<!-- HEADER -->
-<header>
-  <div class="logo">
-    <img src="assets/images/logo.png" alt="Logo MyKido"> <!-- Remplace par ton vrai logo -->
-    <span><strong>My</strong>Kido</span>
-  </div>
-  <div class="header-center">
-    <h3>Accueil</h3>
-  </div>
-  <div class="header-right"></div>
-</header>
-
 <!-- CONTENU DES ACTIVITÉS -->
-<div class="child-container">
-    <!-- Barre de navigation des dates -->
-    <div class="title-bar">
-      <div class="title-center">
-        <span class="child-name">Mes Enfants</span>
+<div class="container mt-4">
+  <!-- Barre de navigation des dates -->
+  <div class="title-bar bg-danger text-white text-center p-3 rounded shadow-sm">
+    <span class="fs-5 fw-bold">Mes Enfants</span>
+  </div>
+
+  <!-- Liste des enfants -->
+  <div class="row mt-3">
+    <div *ngFor="let child of children" class="col-md-6">
+      <div class="child-card d-flex align-items-center p-3 mb-3 rounded shadow-sm bg-warning">
+        <img src="assets/images/koala.png" alt="image" class="rounded-circle border border-success" style="width: 60px; height: 60px;">
+        <span class="ms-3 fw-semibold">
+          {{ child.firstName }} {{ child.lastName }} - Né(e) le {{ child.birthDate | date:'dd/MM/yyyy' }}
+        </span>
       </div>
     </div>
-
-    <div *ngFor="let child of children" class="child-card">
-      
-        <img src="assets/images/koala.png" alt="image">
-      
-      <span class="child-details">
-          {{ child.firstName }} {{ child.lastName }} - Né(e) le {{ child.birthDate | date:'dd/MM/yyyy' }}
-      </span>
-    </div>
+  </div>
 </div>
-

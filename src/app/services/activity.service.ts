@@ -7,7 +7,7 @@ import { Activity } from '../models/Activity';
   providedIn: 'root'
 })
 export class ActivityService {
-  private apiUrl = 'http://localhost:8080/api/activity/activity'; 
+  private apiUrl = 'http://localhost:8080/api/activity'; 
 
     constructor(private http: HttpClient) {}
      getChildren(): Observable<any> {
@@ -19,6 +19,7 @@ export class ActivityService {
         console.log(headers);
         return this.http.get('http://localhost:8080/api/child/childrens', { headers });
       }
+
        registerActivity(
           activityDto:Activity
         ): Observable<any> {
@@ -27,9 +28,20 @@ export class ActivityService {
             'Content-Type': 'application/json',
             'Authorization': token ? token : ''
           });
-          return this.http.post<any>(this.apiUrl, 
+          return this.http.post<any>(`${this.apiUrl}/activity`, 
             activityDto
           ,{headers});
+        }
+
+        getActivitiesForChild(
+          childId:number
+        ): Observable<any> {
+          const token = localStorage.getItem('token');
+          const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': token ? token : ''
+          });
+          return this.http.get<any>(`${this.apiUrl}/${childId}`, { headers });
         }
         
   

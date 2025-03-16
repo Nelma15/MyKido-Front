@@ -1,0 +1,21 @@
+<div class="activity-container">
+    <h2 class="title">📅 {{ currentDate | date:'EEEE d MMMM y' : 'fr' }}</h2>
+  
+    <div *ngFor="let child of children" class="child-section">
+      <h3 class="child-name">{{ child.firstName }} {{ child.lastName }}</h3>
+  
+      <div *ngFor="let activity of activities[child.id]" class="activity-card">
+        <div class="activity-icon">
+          <img [src]="getActivityIcon(activity.activityType)" alt="icon">
+        </div>
+        <div class="activity-details">
+          <h4>{{ activity.activityType }}</h4>
+          <p><strong>{{ child.lastName }}</strong> - {{ activity.activityTimeStart | date:'HH:mm' }}</p>
+          <p>{{ activity.activityDescription }}</p>
+        </div>
+      </div>
+  
+      <p *ngIf="!activities[child.id] || activities[child.id].length === 0" class="no-activity">Aucune activité trouvée.</p>
+    </div>
+  </div>
+  

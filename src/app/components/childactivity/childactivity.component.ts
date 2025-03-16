@@ -31,6 +31,14 @@ export class ChildactivityComponent implements OnInit {
      
     });
   }
+
+  previousDay() {
+    this.currentDate = new Date(this.currentDate.setDate(this.currentDate.getDate() - 1));
+  }
+
+  nextDay() {
+    this.currentDate = new Date(this.currentDate.setDate(this.currentDate.getDate() + 1));
+  }
   getActivityIcon(activityType: string): string {
     const icons: { [key: string]: string } = {
       "Arrivée": "assets/images/activity/clock.png",
@@ -42,4 +50,5 @@ export class ChildactivityComponent implements OnInit {
     };
     return icons[activityType] || "assets/icons/default.svg";
   }
+
 }

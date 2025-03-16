@@ -1,67 +1,158 @@
+/* ===== HEADER PRINCIPAL ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b0d6d1;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #000000;
+    padding: 10px;
+}
+
+/* Logo à gauche */
+.header-left .logo {
+    height: 50px; /* Ajuste la taille du logo */
+    width: auto;
+    border-radius: 5px;
+}
+
+/* Titre centré */
+.header-center h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+/* ===== BARRE DE DATE ===== */
+.date-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8caca;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Flèches de navigation */
+.date-arrow {
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #c07b7b;
+}
+
+/* ===== CONTENU DES ACTIVITÉS ===== */
 .activity-container {
     max-width: 800px;
     margin: auto;
-    background-color: #fdf6e3;
+    background-color: #ffffff;
     padding: 15px;
     border-radius: 8px;
-  }
-  
-  .title {
+}
+
+/* Titre de la section */
+.title {
     text-align: center;
     font-size: 18px;
     color: #333;
     padding: 10px;
     background-color: #f8caca;
     border-radius: 6px;
-  }
-  
-  .child-section {
+}
+
+/* Section d'un enfant */
+.child-section {
     margin-bottom: 20px;
-  }
-  
-  .child-name {
+}
+
+/* Nom de l'enfant */
+.child-name {
     font-size: 20px;
     color: #444;
     margin-bottom: 10px;
-  }
-  
-  .activity-card {
+   
+}
+
+/* Carte d'activité */
+.activity-card {
     display: flex;
     align-items: center;
     background-color: #fff8e1;
     padding: 10px;
     margin-bottom: 8px;
     border-radius: 6px;
-    border-left: 5px solid #ffb74d;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .activity-icon img {
+}
+
+/* Icône de l'activité */
+.activity-icon img {
     width: 40px;
     height: 40px;
     margin-right: 15px;
-  }
-  
-  .activity-details {
+}
+
+/* Détails de l'activité */
+.activity-details {
     flex-grow: 1;
-  }
-  
-  .activity-details h4 {
+}
+
+.activity-details h4 {
     margin: 0;
     color: #555;
     font-size: 16px;
-  }
-  
-  .activity-details p {
+}
+
+.activity-details p {
     margin: 5px 0 0;
     font-size: 14px;
     color: #666;
-  }
-  
-  .no-activity {
+}
+
+/* Message "Aucune activité trouvée" */
+.no-activity {
     color: #888;
     text-align: center;
     font-style: italic;
     padding: 10px;
-  }
-  
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #b0d6d1;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Chaque élément du footer */
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Icônes du footer */
+.footer-item img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+}
+
+/* Style au clic */
+.footer-item:active {
+    transform: scale(0.95);
+}

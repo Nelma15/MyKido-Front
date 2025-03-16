@@ -1,21 +1,61 @@
-<div class="activity-container">
-    <h2 class="title">📅 {{ currentDate | date:'EEEE d MMMM y' : 'fr' }}</h2>
-  
-    <div *ngFor="let child of children" class="child-section">
-      <h3 class="child-name">{{ child.firstName }} {{ child.lastName }}</h3>
-  
-      <div *ngFor="let activity of activities[child.id]" class="activity-card">
-        <div class="activity-icon">
-          <img [src]="getActivityIcon(activity.activityType)" alt="icon">
-        </div>
-        <div class="activity-details">
-          <h4>{{ activity.activityType }}</h4>
-          <p><strong>{{ child.lastName }}</strong> - {{ activity.activityTimeStart | date:'HH:mm' }}</p>
-          <p>{{ activity.activityDescription }}</p>
-        </div>
-      </div>
-  
-      <p *ngIf="!activities[child.id] || activities[child.id].length === 0" class="no-activity">Aucune activité trouvée.</p>
+<!-- HEADER -->
+<header class="header">
+    <div class="header-left">
+      <img src="assets/images/logo.png" alt="Logo" class="logo">
     </div>
-  </div>
+    
+    <div class="header-center">
+      <h1>Accueil</h1>
+    </div>
   
+    <div class="header-right"></div>
+</header>
+
+
+
+<!-- CONTENU DES ACTIVITÉS -->
+<div class="activity-container">
+    <div *ngFor="let child of children" class="child-section">
+        <!-- Barre de navigation des dates -->
+        <div class="date-bar">
+            <h3 class="child-name">{{ child.firstName }} {{ child.lastName }}</h3>
+            <span class="date-arrow" (click)="previousDay()">&lt;</span>
+            <span class="date-text"> {{ currentDate | date:'EEEE d MMMM y' }}</span>
+            <span class="date-arrow" (click)="nextDay()">&gt;</span>
+        </div>
+     
+
+        <div *ngFor="let activity of activities[child.id]" class="activity-card">
+            <div class="activity-icon">
+                <img [src]="getActivityIcon(activity.activityType)" alt="icon">
+            </div>
+            <div class="activity-details">
+                <h4>{{ activity.activityType }}</h4>
+                <p><strong>{{ child.lastName }}</strong> - {{ activity.activityTimeStart | date:'HH:mm' }}</p>
+                <p>{{ activity.activityDescription }}</p>
+            </div>
+        </div>
+
+        <p *ngIf="!activities[child.id] || activities[child.id].length === 0" class="no-activity">Aucune activité trouvée.</p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <a routerLink="/home" class="footer-item">
+        <img src="assets/images/footer/home.png" alt="Accueil">
+        <span>Accueil</span>
+    </a>
+    <a routerLink="/news" class="footer-item">
+        <img src="assets/images/footer/news.png" alt="Actualités">
+        <span>Actualités</span>
+    </a>
+    <a routerLink="/messages" class="footer-item">
+        <img src="/assets/images/footer/message.png" alt="Message">
+        <span>Message</span>
+    </a>
+    <a routerLink="/tools" class="footer-item">
+        <img src="/assets/images/footer/tools.png" alt="Mes outils">
+        <span>Mes outils</span>
+    </a>
+</footer>

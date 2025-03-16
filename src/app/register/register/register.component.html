@@ -1,100 +1,107 @@
+<!-- En-tête -->
+<header>
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="Logo MyKido"> <!-- Remplace par ton vrai logo -->
+    <span><strong>My</strong>Kido</span>
+  </div>
+  <nav>
+    <a href="">Se Connecter</a>
+  </nav>
+</header>
 <div class="col-sm-12">
-    <div class="card card-container">
-  
-      <form
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-        novalidate
-      >
-  
-        <!-- Email input -->
-        <div class="form-group">
-            <label for="lastName">LastName</label>
-            <input
-              type="lastName"
-              class="form-control"
-              name="lastName"
-              [(ngModel)]="form.lastName"
-              required
-              lastName
-              #lastName="ngModel"
-              [ngClass]="{ 'is-invalid': f.submitted && lastName.errors }"
-            />
-            <div *ngIf="lastName.errors && f.submitted" class="invalid-feedback">
-              <div *ngIf="lastName.errors['required']">LastName is required</div>
-              <div *ngIf="lastName.errors['lastName']">
-                LastName must be a valid 
-              </div>
-            </div>
-          </div>
-
-                  <!-- Email input -->
-        <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input
-              type="firstName"
-              class="form-control"
-              name="firstName"
-              [(ngModel)]="form.firstName"
-              required
-              firstName
-              #firstName="ngModel"
-              [ngClass]="{ 'is-invalid': f.submitted && firstName.errors }"
-            />
-            <div *ngIf="firstName.errors && f.submitted" class="invalid-feedback">
-              <div *ngIf="firstName.errors['required']">FirstName is required</div>
-              <div *ngIf="firstName.errors['firstName']">
-                FirstName must be a valid
-              </div>
-            </div>
-          </div>
-
-        <!-- Email input -->
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            [(ngModel)]="form.email"
-            required
-            email
-            #email="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
-          />
-          <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
-            <div *ngIf="email.errors['required']">Email is required</div>
-            <div *ngIf="email.errors['email']">
-              Email must be a valid email address
-            </div>
+  <div class="card card-container main-container">
+    <h2>Inscrivez-vous</h2>
+    <form
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="container">
+      <!-- Email input -->
+      <div class="form-group">
+        <input
+          type="lastName"
+          class="form-control"
+          name="lastName"
+          [(ngModel)]="form.lastName"
+          required
+          lastName
+          #lastName="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && lastName.errors }" placeholder="Prénom"
+        />
+        <div *ngIf="lastName.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="lastName.errors['required']">LastName is required</div>
+          <div *ngIf="lastName.errors['lastName']">
+            LastName must be a valid
           </div>
         </div>
-  
-        <!-- Password input -->
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            [(ngModel)]="form.password"
-            required
-            minlength="6"
-            #password="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
-          />
-          <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
-            <div *ngIf="password.errors['required']">Password is required</div>
-            <div *ngIf="password.errors['minlength']">
-              Password must be at least 6 characters
-            </div>
+      </div>
+
+      <!-- Email input -->
+      <div class="form-group">
+        <input
+          type="firstName"
+          class="form-control"
+          name="firstName"
+          [(ngModel)]="form.firstName"
+          required
+          firstName
+          #firstName="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && firstName.errors }" placeholder="Nom"
+        />
+        <div *ngIf="firstName.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="firstName.errors['required']">FirstName is required</div>
+          <div *ngIf="firstName.errors['firstName']">
+            FirstName must be a valid
           </div>
         </div>
+      </div>
 
-    <!-- Phone input -->
-    <div class="form-group">
-        <label for="phone">Phone</label>
+      <!-- Email input -->
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          email
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+          placeholder="Email"
+        />
+        <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="email.errors['required']">Email is required</div>
+          <div *ngIf="email.errors['email']">
+            Email must be a valid email address
+          </div>
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+          placeholder="Mot de passe"
+        />
+        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone input -->
+      <div class="form-group">
         <input
           type="text"
           class="form-control"
@@ -104,6 +111,7 @@
           minlength="10"
           #phone="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && phone.errors }"
+          placeholder="Numéro de téléphone Mobile"
         />
         <div *ngIf="phone.errors && f.submitted" class="invalid-feedback">
           <div *ngIf="phone.errors['required']">Phone is required</div>
@@ -111,33 +119,29 @@
             Phone must be at least 10 characters
           </div>
         </div>
-    </div>
+      </div>
 
-          <!-- Role selection -->
-        <div class="form-group">
-          <label for="role">Select Role</label>
-          <select
-            class="form-control"
-            name="role"
-            [(ngModel)]="form.role"
-            required
-            #role="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && role.errors }"
-          >
-            <option value="ROLE_PARENT">Parent</option>
-            <option value="ROLE_CHILDEDUCATOR">Educatrice</option>
-          </select>
-          <div *ngIf="role.errors && f.submitted" class="invalid-feedback">
-            <div>Role is required</div>
-          </div>
+      <!-- Role selection -->
+      <div class="form-group">
+        <select
+          class="form-control"
+          name="role"
+          [(ngModel)]="form.role"
+          required
+          #role="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && role.errors }"
+        >
+          <option value="Choisissez votre rôle" disabled>Choisissez votre rôle</option>
+          <option value="ROLE_PARENT" selected>Parent</option>
+          <option value="ROLE_CHILDEDUCATOR">Educatrice</option>
+        </select>
+        <div *ngIf="role.errors && f.submitted" class="invalid-feedback">
+          <div>Role is required</div>
         </div>
-
-        <!-- Address Fields -->
-        <h5>Address Information</h5>
-  
-        <!-- Street Name -->
+      </div>
+      <div *ngIf="isParent()">
+      <!-- Street Name -->
         <div class="form-group">
-          <label for="streetname">Street Name</label>
           <input
             type="text"
             class="form-control"
@@ -146,15 +150,15 @@
             required
             #streetname="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && streetname.errors }"
+            placeholder="Nom de la rue"
           />
           <div *ngIf="streetname.errors && f.submitted" class="invalid-feedback">
             <div>Street Name is required</div>
           </div>
         </div>
-  
+
         <!-- Street Number -->
         <div class="form-group">
-          <label for="streetnumber">Street Number</label>
           <input
             type="text"
             class="form-control"
@@ -164,16 +168,16 @@
             pattern="[0-9]+"
             #streetnumber="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && streetnumber.errors }"
+            placeholder="Numéro de la rue"
           />
           <div *ngIf="streetnumber.errors && f.submitted" class="invalid-feedback">
             <div *ngIf="streetnumber.errors['required']">Street Number is required</div>
             <div *ngIf="streetnumber.errors['pattern']">Street Number must be a number</div>
           </div>
         </div>
-  
+
         <!-- Zip Code -->
         <div class="form-group">
-          <label for="postalCode">Postal Code</label>
           <input
             type="text"
             class="form-control"
@@ -183,16 +187,16 @@
             pattern="[0-9]{5}"
             #zipcode="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && zipcode.errors }"
+            placeholder="Code Postal"
           />
           <div *ngIf="zipcode.errors && f.submitted" class="invalid-feedback">
             <div *ngIf="zipcode.errors['required']">Zip Code is required</div>
             <div *ngIf="zipcode.errors['pattern']">Zip Code must be 5 digits</div>
           </div>
         </div>
-  
+
         <!-- City -->
         <div class="form-group">
-          <label for="city">City</label>
           <input
             type="text"
             class="form-control"
@@ -201,27 +205,30 @@
             required
             #city="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && city.errors }"
+            placeholder="Ville" required
           />
           <div *ngIf="city.errors && f.submitted" class="invalid-feedback">
             <div>City is required</div>
           </div>
         </div>
-  
-        <!-- Submit button -->
-        <div class="form-group">
-          <button class="btn btn-primary btn-block">Sign Up</button>
-        </div>
-  
-        <!-- SignUp failed alert -->
-        <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-          Signup failed!<br />{{ errorMessage }}
-        </div>
-      </form>
-  
-      <!-- Success message -->
-      <div *ngIf="isSuccessful" class="alert alert-success">
-        Your registration is successful!
       </div>
+
+      <!-- Submit button -->
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Sign Up</button>
+      </div>
+
+      <!-- SignUp failed alert -->
+      <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+        Signup failed!<br/>{{ errorMessage }}
+      </div>
+      </div>
+      <p>En cliquant sur s'inscrire, vous acceptez les conditions générales de <strong>MyKido</strong></p>
+    </form>
+
+    <!-- Success message -->
+    <div *ngIf="isSuccessful" class="alert alert-success">
+      Your registration is successful!
     </div>
   </div>
-  
+</div>

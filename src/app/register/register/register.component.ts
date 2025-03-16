@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RegisterService } from '../../services/registerService';
 import { NgClass, NgIf } from '@angular/common';
-import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Adress } from '../../models/Adress';
 import { Register } from '../../models/Register';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,13 +15,12 @@ import { Register } from '../../models/Register';
 })
 export class RegisterComponent {
     form: any = {
-      username: null,
       email: null,
       password: null,
       lastName: null,
       firstName: null,
       phone: null,
-      role: null,
+      role: 'ROLE_CHILDEDUCATOR',
       streetName: null,
       streetNumber: null,
       city: null,
@@ -29,11 +29,11 @@ export class RegisterComponent {
     isSuccessful = false;
     isSignUpFailed = false;
     errorMessage = '';
-  
-    constructor(private registerService: RegisterService) { }
-  
-    onSubmit(): void {adress:Adress
-      
+
+    constructor(private registerService: RegisterService, private router:Router) { }
+
+    onSubmit(): void {
+
       const {lastName, firstName, email, password, phone, role, streetName, streetNumber, city, postalCode } = this.form;
       const address = new Adress(streetName,streetNumber,city,postalCode);
       let register = new Register(lastName, firstName, email, password, phone,address, role);
@@ -42,6 +42,7 @@ export class RegisterComponent {
           console.log(data);
           this.isSuccessful = true;
           this.isSignUpFailed = false;
+          this.router.navigate(['']);
         },
         error: err => {
           this.errorMessage = err.error.message;
@@ -49,6 +50,9 @@ export class RegisterComponent {
         }
       });
     }
-  
 
+
+  isParent() {
+    return this.form.role !== 'ROLE_CHILDEDUCATOR';
+  }
 }

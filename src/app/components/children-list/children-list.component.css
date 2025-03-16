@@ -1,11 +1,16 @@
+/* ============================= */
+/*           HEADER              */
+/* ============================= */
 header {
-  background-color: #9FC7C2;
+  background-color: #9FC7C2; /* Conserve la couleur d'origine */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -22,12 +27,21 @@ header {
   color: #000;
 }
 
-/* ===== BARRE DE DATE ===== */
+/* Centrage du titre dans le header */
+.header-center h3 {
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* ============================= */
+/*      BARRE DE NAVIGATION      */
+/* ============================= */
 .title-bar {
   display: flex;
   align-items: center;
-  background-color: #f8caca;
-  padding: 10px 15px;
+  background-color: #f8caca; /* Conserve la couleur rose */
+  padding: 12px;
   font-size: 16px;
   font-weight: bold;
   color: #333;
@@ -35,73 +49,79 @@ header {
   width: 100%;
 }
 
-.title-left {
-  flex: 1;  /* Prend l'espace à gauche */
-  text-align: left;
-}
-
-.child-name {
-  font-size: 18px;
-  font-weight: bold;
-  color: #444;
-}
 .title-center {
-  flex: 2;  /* Prend plus d'espace pour forcer la date au centre */
+  flex: 2; /* Permet de centrer le titre */
   text-align: center;
 }
-.title-right {
-  flex: 1;  /* Équilibre avec le côté gauche */
-  display: flex;
-  justify-content: flex-end;
-}
 
-/* ===== CONTENU DES ENFANTS ===== */
+/* ============================= */
+/*      CONTENU DES ENFANTS      */
+/* ============================= */
 .child-container {
+  max-width: 800px;
   margin: auto;
   background-color: #ffffff;
-  padding: 15px;
+  padding: 20px;
   border-radius: 8px;
 }
 
-/* Titre de la section */
-.title {
-  text-align: center;
-  font-size: 18px;
-  color: #333;
-  padding: 10px;
-  background-color: #f8caca;
-  border-radius: 6px;
-}
-
-/* Nom de l'enfant */
-.child-name {
-  font-size: 18px;
-  font-weight: bold;
-  color: #444;
-  flex: 1; /* Prend l'espace à gauche */
-  text-align: left;
-
-}
-
-/* Carte d'enfant */
+/* Carte enfant */
 .child-card {
   display: flex;
   align-items: center;
-  background-color: #fff8e1;
-  padding: 10px;
-  margin-bottom: 8px;
+  background-color: #fff8e1; /* Conserve la couleur jaune pâle */
+  padding: 12px;
+  margin-bottom: 10px;
   border-radius: 6px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
-/* image de l'enfant */
-img {
-  width: 50px;
-  height: 50px;
+.child-card:hover {
+  transform: scale(1.02);
+}
+
+/* Image enfant */
+.child-card img {
+  width: 60px;
+  height: 60px;
   margin-right: 15px;
+  border-radius: 50%;
+  border: 2px solid #9FC7C2; /* Bordure de la couleur principale */
 }
 
-/* Détails de l'activité */
+/* Informations enfant */
 .child-details {
   flex-grow: 1;
+  font-size: 16px;
+  color: #444;
+}
+
+/* ============================= */
+/*        RESPONSIVITÉ           */
+/* ============================= */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .child-container {
+    padding: 15px;
+  }
+
+  .child-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .child-card img {
+    margin-bottom: 10px;
+  }
 }

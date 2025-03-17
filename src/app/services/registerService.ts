@@ -1,11 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Adress } from '../models/Adress';
-import { Token } from '@angular/compiler';
 import { Register } from '../models/Register';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +19,15 @@ export class RegisterService {
       'Authorization': token ? token : ''
     });
 
-    return this.http.post<any>(this.apiUrl, 
+    return this.http.post<any>(this.apiUrl,
       registerDto
-    ,{headers});
+    ,{headers, responseType: 'text/plain' as 'json'});
   }
-  
 
 
-  
-    
+
+
+
 
   }
 

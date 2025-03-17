@@ -1,19 +1,80 @@
-<!-- CONTENU DES ACTIVITÉS -->
 <div class="container mt-4">
   <!-- Barre de navigation des dates -->
-  <div class="title-bar bg-danger text-white text-center p-3 rounded shadow-sm">
+  <div class="title-bar bg-danger text-white text-center p-3 rounded shadow-sm" (click)="togglePanel()" style="cursor: pointer;">
     <span class="fs-5 fw-bold">Mes Enfants</span>
   </div>
 
-  <!-- Liste des enfants -->
-  <div class="row mt-3">
-    <div *ngFor="let child of children" class="col-md-6">
-      <div class="child-card d-flex align-items-center p-3 mb-3 rounded shadow-sm bg-warning">
-        <img src="assets/images/koala.png" alt="image" class="rounded-circle border border-success" style="width: 60px; height: 60px;">
-        <span class="ms-3 fw-semibold">
-          {{ child.firstName }} {{ child.lastName }} - Né(e) le {{ child.birthDate | date:'dd/MM/yyyy' }}
-        </span>
+  <!-- Panneau extensible avec animation -->
+  <div id="childrenPanel" [ngClass]="{'open': isPanelOpen, 'closed': !isPanelOpen}">
+    <div class="row mt-3">
+      <div *ngFor="let child of children" class="col-md-6">
+        <div class="child-card d-flex align-items-center p-3 mb-3 rounded shadow-sm bg-warning">
+          <img src="assets/images/koala.png" alt="image" class="rounded-circle border border-success" style="width: 60px; height: 60px;">
+          <span class="ms-3 fw-semibold">
+            {{ child.firstName }} {{ child.lastName }} - Né(e) le {{ child.birthDate | date:'dd/MM/yyyy' }}
+          </span>
+          <span class="ms-3 fw-semibold">
+            Allergies : {{ child.allergies }}<br>
+            Remarques : {{ child.notes }}
+          </span>
+        </div>
       </div>
     </div>
+  </div>
+
+  <!-- Bouton pour afficher le formulaire d'ajout d'enfants -->
+  <div class="title-bar bg-danger text-white text-center p-3 rounded shadow-sm" (click)="toggleChildPanel()" style="cursor: pointer;">
+    <span class="fs-5 fw-bold">Ajouter Enfants</span>
+  </div>
+</div>
+
+<!-- Formulaire Ajouter Enfant avec animation -->
+<div class="card card-container main-container" id="addChildPanel" [ngClass]="{'open': isAddChildOpen, 'closed': !isAddChildOpen}">
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="container">
+      <div class="form-group">
+        <input type="text" class="form-control" name="lastName" [(ngModel)]="childForm.lastName" required #lastName="ngModel"
+               [ngClass]="{ 'is-invalid': f.submitted && lastName.errors }" placeholder="Nom"/>
+        <div *ngIf="lastName.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="lastName.errors['required']">Nom requis</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="firstName" [(ngModel)]="childForm.firstName" required #firstName="ngModel"
+               [ngClass]="{ 'is-invalid': f.submitted && firstName.errors }" placeholder="Prénom"/>
+        <div *ngIf="firstName.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="firstName.errors['required']">Prénom requis</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="date" class="form-control" name="birthDate" [(ngModel)]="childForm.birthDate" required #birthDate="ngModel"
+               [ngClass]="{ 'is-invalid': f.submitted && birthDate.errors }"/>
+        <div *ngIf="birthDate.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="birthDate.errors['required']">Date de naissance requise</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="allergies" [(ngModel)]="childForm.allergies" placeholder="Allergies"/>
+      </div>
+
+      <div class="form-group">
+        <textarea id="notes" [(ngModel)]="childForm.notes" name="notes" rows="3" placeholder="Notes"></textarea>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Ajouter</button>
+      </div>
+
+      <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+        Échec de l'inscription !<br/>{{ errorMessage }}
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="isSuccessful" class="alert alert-success">
+    L'inscription est réussie !
   </div>
 </div>

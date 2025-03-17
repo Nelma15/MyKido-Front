@@ -9,27 +9,12 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
   private apiUrl = 'http://localhost:8080/api/auth/login'; // URL du backend
-  roles: any;
 
-  constructor(private http: HttpClient,private router :Router) {}
+  constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {
     return this.http.post<any>(this.apiUrl, { email, password });
   }
-  private mapRoles(rolesFromBackend: string[]): Role[] {
-    return rolesFromBackend
-      .map((role) => role as unknown as Role)
-      .filter((role) => Object.values(Role).includes(role));
   }
-  
-  isParent(): boolean {
-    return this.roles.includes(Role.ROLE_PARENT);
-  }
- 
-  isChildEducator(): boolean {
-    return this.roles.includes(Role.ROLE_CHILDEDUCATOR);
-  }
- 
-  }
-  
+
 

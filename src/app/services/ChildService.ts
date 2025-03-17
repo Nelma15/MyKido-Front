@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChildService {
-  private apiUrl = 'http://localhost:8080/api/child'; 
+  private apiUrl = 'http://localhost:8080/api/child';
 
   constructor(private http: HttpClient) {}
 
@@ -20,13 +20,13 @@ export class ChildService {
     return this.http.get(`${this.apiUrl}/mychildren`, { headers });
   }
 
-  //  Méthode pour récupérer le token de l'utilisateur connecté
-  private getAuthHeaders(): HttpHeaders {
-    const token = localStorage.getItem('token'); //  Récupérer le Token JWT stocké
-    return new HttpHeaders({
-      'Authorization': `${token}`,
-      'Content-Type': 'application/json'
+  addChild(child: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token ? token : ''
     });
+    return this.http.post(`${this.apiUrl}/add`, child, { headers });
   }
 
 }

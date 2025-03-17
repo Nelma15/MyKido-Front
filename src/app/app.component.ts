@@ -14,8 +14,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'Front';
-  showHeader: boolean = true; 
-  showFooter: boolean = true; 
+  showHeader: boolean = true;
+  showFooter: boolean = true;
 
   constructor(private router: Router) {
     this.router.events
@@ -23,10 +23,16 @@ export class AppComponent {
       .subscribe((event: any) => {
         // Liste des pages où on veut cacher le header/footer
         const hiddenRoutes = ['/', '/register'];
-
-        // Vérifier si la route actuelle est dans les pages cachées
-        this.showHeader = !hiddenRoutes.includes(event.url);
-        this.showFooter = !hiddenRoutes.includes(event.url);
+        if(event.url === '/') {
+          // Vérifier si la route actuelle est dans les pages cachées
+          this.showHeader = !hiddenRoutes.includes(event.url);
+          this.showFooter = !hiddenRoutes.includes(event.url);
+        }
+        if(event.url === '/register') {
+          // Vérifier si la route actuelle est dans les pages cachées
+          this.showHeader = !hiddenRoutes.includes(event.url);
+          this.showFooter = !hiddenRoutes.includes(event.url);
+        }
         if(event.url === '/activity'){
 
           this.showFooter = false;

@@ -39,11 +39,11 @@ export class LoginComponent {
           localStorage.setItem('token', 'Bearer ' + response.accessToken);
           let role = response.role;
           if (role === 'ROLE_PARENT') {
-            this.router.navigate(['/activityList']);
+            this.router.navigate(['activityList']);
           } else if (role ==='ROLE_CHILDEDUCATOR') {
             this.router.navigate(['activity']);
           } else {
-            this.router.navigate(['']); // Page par défaut si aucun rôle ne correspond
+            this.router.navigate(['register']); // Page par défaut si aucun rôle ne correspond
           } // Stockage du token
         },
         error: (err) => {

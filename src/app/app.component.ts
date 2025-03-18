@@ -22,20 +22,20 @@ export class AppComponent {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
         // Liste des pages où on veut cacher le header/footer
-        const hiddenRoutes = ['/', '/register'];
         if(event.url === '/') {
           // Vérifier si la route actuelle est dans les pages cachées
-          this.showHeader = !hiddenRoutes.includes(event.url);
-          this.showFooter = !hiddenRoutes.includes(event.url);
+          this.showHeader = false
+          this.showFooter = false
         }
-        if(event.url === '/register') {
+        if(event.url === '/register' || event.url === '/activity') {
+          this.showHeader = true;
           // Vérifier si la route actuelle est dans les pages cachées
-          this.showHeader = !hiddenRoutes.includes(event.url);
-          this.showFooter = !hiddenRoutes.includes(event.url);
+          this.showFooter = false
         }
-        if(event.url === '/activity'){
-
-          this.showFooter = false;
+        if(event.url === '/activityList') {
+          this.showHeader = true;
+          // Vérifier si la route actuelle est dans les pages cachées
+          this.showFooter = true
         }
       });
   }

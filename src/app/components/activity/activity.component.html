@@ -15,14 +15,14 @@
     <!-- Sélection de l'enfant (childId) -->
     <div class="form-group">
       <label for="childId">Nom de l’enfant</label>
-      <select 
-        id="childId" 
-        [(ngModel)]="newActivity.childId" 
+      <select
+        id="childId"
+        [(ngModel)]="newActivity.childId"
         name="childId"
         required
       >
         <option *ngFor="let child of children" [value]="child.id">
-          {{ child.lastName }}
+          {{ child.firstName }} {{ child.lastName }}
         </option>
       </select>
     </div>
@@ -30,30 +30,34 @@
     <!-- Type d'activité -->
     <div class="form-group">
       <label for="activityType">Type d’activité</label>
-      <select 
-        id="activityType" 
-        [(ngModel)]="newActivity.activityType" 
+      <select
+        id="activityType"
+        [(ngModel)]="newActivity.activityType"
         name="activityType"
         required
       >
         <option value="">Sélectionner...</option>
-        <option value="dessin">Dessin</option>
-        <option value="lecture">Lecture</option>
-        <option value="jeu extérieur">Jeu extérieur</option>
-        <option value="peinture">Peinture</option>
-        <option value="musique">Musique</option>
-        <option value="sieste">Sieste</option>
-        <option value="repas">Repas/Gouter</option>
+        <option value="Arrivée">Arrivée</option>
+        <option value="Départ">Départ</option>
+        <option value="Activité">Dessin</option>
+        <option value="Activité">Lecture</option>
+        <option value="Activité">Jeu extérieur</option>
+        <option value="Activité">Peinture</option>
+        <option value="Activité">Musique</option>
+        <option value="Hygiène">Selle</option>
+        <option value="Hygiène">Pipi</option>
+        <option value="Sieste">Sieste</option>
+        <option value="Repas/Goûter">Repas/Gouter</option>
       </select>
     </div>
 
     <!-- Nom de l'activité -->
     <div class="form-group">
       <label for="activityName">Nom de l’activité</label>
-      <input 
-        type="text" 
-        id="activityName" 
-        [(ngModel)]="newActivity.activityName" 
+      <input
+        type="text"
+        id="activityName"
+        [(ngModel)]="newActivity.activityName"
         name="activityName"
         required
       />
@@ -62,10 +66,10 @@
     <!-- Date et heure de début de l'activité -->
     <div class="form-group">
       <label for="activityTimeStart">Date et heure de début</label>
-      <input 
-        type="datetime-local" 
-        id="activityTimeStart" 
-        [(ngModel)]="newActivity.activityTimeStart" 
+      <input
+        type="datetime-local"
+        id="activityTimeStart"
+        [(ngModel)]="newActivity.activityTimeStart"
         name="activityTimeStart"
         required
       />
@@ -74,10 +78,10 @@
     <!-- Date et heure de fin de l'activité (optionnel) -->
     <div class="form-group">
       <label for="activityTimeEnd">Date et heure de fin</label>
-      <input 
-        type="datetime-local" 
-        id="activityTimeEnd" 
-        [(ngModel)]="newActivity.activityTimeEnd" 
+      <input
+        type="datetime-local"
+        id="activityTimeEnd"
+        [(ngModel)]="newActivity.activityTimeEnd"
         name="activityTimeEnd"
       />
     </div>
@@ -85,10 +89,10 @@
     <!-- Description / Notes (correspond à activityDescription) -->
     <div class="form-group">
       <label for="activityDescription">Description / Notes</label>
-      <textarea 
-        id="activityDescription" 
-        [(ngModel)]="newActivity.activityDescription" 
-        name="activityDescription" 
+      <textarea
+        id="activityDescription"
+        [(ngModel)]="newActivity.activityDescription"
+        name="activityDescription"
         rows="3"
       ></textarea>
     </div>
@@ -96,10 +100,10 @@
     <!-- Optionnel : Input pour la photo
     <div class="form-group">
       <label for="photo">Photo</label>
-      <input 
-        type="file" 
-        id="photo" 
-        (change)="onFileChange($event)" 
+      <input
+        type="file"
+        id="photo"
+        (change)="onFileChange($event)"
         accept="image/*"
       />
     </div> -->
